@@ -8,13 +8,14 @@
         /* --- 基礎設定 --- */
         :root {
             --bg-dark: #0a0a0b;
+            --bg-card: #161617;
             --text-main: #e0e0e0;
-            --accent: #ffffff; /* 亮色強調 */
-            --overlay: rgba(10, 10, 11, 0.7); /* 影片遮罩 */
+            --accent: #ffffff;
+            --border: #2d2d2e;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; } /* 平順捲動關鍵 */
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -23,7 +24,7 @@
             line-height: 1.6;
         }
 
-        /* --- 1. 導覽列 (Sticky Navbar) --- */
+        /* --- 導覽列 --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -33,22 +34,17 @@
             align-items: center;
             z-index: 1000;
             background: rgba(10, 10, 11, 0.8);
-            backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .logo { font-weight: bold; font-size: 1.2rem; cursor: pointer; text-decoration: none; color: white; }
-
         .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: white; }
+        .btn-quote { background: white; color: black !important; padding: 8px 18px; border-radius: 4px; font-weight: bold; }
 
-        .btn-quote {
-            background: white; color: black !important;
-            padding: 8px 18px; border-radius: 4px; font-weight: bold;
-        }
-
-        /* --- 2. Video Banner (Hero Section) --- */
+        /* --- Hero Banner --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -59,183 +55,63 @@
             text-align: center;
         }
 
-        .video-container {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -2;
-        }
-
+        .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Banner 的漸層淡出效果 (Vignette) */
         .hero-overlay {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle, transparent 40%, var(--bg-dark) 100%),
                         linear-gradient(to bottom, transparent 70%, var(--bg-dark) 100%);
             z-index: -1;
         }
 
-        .hero-content { max-width: 800px; padding: 20px; }
         .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; color: white; }
         .hero-content p { font-size: 1.2rem; opacity: 0.8; }
 
-        /* --- 3. 區塊通用樣式 --- */
+        /* --- 區塊通用 --- */
         section { padding: 100px 10%; min-height: 80vh; }
         h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; color: white; }
 
-        /* Gallery 網格範例 */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #161617;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #2d2d2e;
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); border-color: #555; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; }
         .card img { width: 100%; height: 200px; object-fit: cover; }
         .card-body { padding: 20px; }
 
-        /* --- Contact 佈局 --- */
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
+        /* --- Contact & Quote Form 佈局 --- */
+        .contact-container { display: flex; flex-wrap: wrap; gap: 50px; max-width: 1200px; margin: 0 auto; }
         .contact-info { flex: 1; min-width: 300px; }
-        .quote-form { 
-            flex: 2; 
-            min-width: 400px; 
-            background: #161617; 
-            padding: 40px; 
-            border-radius: 12px; 
-            border: 1px solid #2d2d2e;
-        }
+        .quote-form { flex: 2; min-width: 400px; background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); }
         
-        .contact-info h2, .quote-form h2 { text-align: left; margin-bottom: 30px; }
-        
-        .info-item { margin-bottom: 25px; }
-        .info-item strong { display: block; color: white; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
-        
-        /* --- 表單美化 --- */
+        .contact-info h2, .quote-form h2 { text-align: left; margin-bottom: 20px; }
+        .info-item { margin-bottom: 20px; }
+        .info-item strong { display: block; color: white; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
+        .qr-wrap img { width: 150px; margin-top: 10px; border: 4px solid white; border-radius: 4px; }
+
+        /* --- 表單控制 --- */
         .form-group { margin-bottom: 20px; }
-        .form-row { display: flex; gap: 20px; }
+        .form-row { display: flex; gap: 15px; }
         .form-row .form-group { flex: 1; }
-        
         label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #bbb; }
         
         input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            padding: 12px;
-            background: #0a0a0b;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 4px;
-            font-size: 1rem;
+            width: 100%; padding: 12px; background: #0a0a0b; border: 1px solid #333; color: white; border-radius: 4px;
         }
         
-        input:focus, textarea:focus { outline: none; border-color: #666; }
-        
-        .radio-group { display: flex; gap: 20px; padding-top: 5px; }
-        .radio-group label { color: white; cursor: pointer; }
-        
+        .radio-group { display: flex; gap: 15px; flex-wrap: wrap; padding-top: 5px; }
+        .radio-group label { color: white; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+
         .btn-submit {
-            width: 100%;
-            padding: 15px;
-            background: white;
-            color: black;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
+            width: 100%; padding: 15px; background: white; color: black; border: none; border-radius: 4px;
+            font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
         .btn-submit:hover { background: #ccc; }
-        
-        @media (max-width: 850px) {
-            .contact-container { flex-direction: column; }
-            .form-row { flex-direction: column; gap: 0; }
-        }
-        /* --- 4. 聯絡資訊 --- */
-        
-        <section id="contact" style="background: #0e0e10; padding-top: 80px;">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Contact</h2>
-                    <div class="info-item">
-                        <strong>Email</strong>
-                        <p>info@yourdomain.ca</p>
-                    </div>
-                    <div class="info-item">
-                        <strong>Address</strong>
-                        <p>636 Welland Ave, St. Catharines, ON</p>
-                    </div>
-                    <div class="qr-wrap">
-                        <p>Scan to Chat</p>
-                        <img src="assets/qr-code.png" alt="QR Code" style="width: 150px; margin-top: 10px; border: 5px solid white; border-radius: 4px;">
-                    </div>
-                </div>
-        
-                <div class="quote-form">
-                    <h2>Start Your Quote</h2>
-                    <form action="https://docs.google.com/forms/u/0/d/e/你的表單ID/formResponse" method="POST" target="_self">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="entry.12345" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" name="entry.67890" placeholder="Your Email" required>
-                            </div>
-                        </div>
-        
-                        <div class="form-group">
-                            <label>Material</label>
-                            <input type="text" name="entry.11111" placeholder="e.g. Aluminum 6061, Delrin..." required>
-                        </div>
-        
-                        <div class="form-group">
-                            <label>Description (Part Details)</label>
-                            <textarea name="entry.22222" rows="4" placeholder="Tell us about your project requirements..."></textarea>
-                        </div>
-        
-                        <div class="form-group">
-                            <label>Acceptable Lead Time (Lower time = Higher cost)</label>
-                            <div class="radio-group">
-                                <label><input type="radio" name="entry.33333" value="10 days"> 10 Days</label>
-                                <label><input type="radio" name="entry.33333" value="20 days"> 20 Days</label>
-                                <label><input type="radio" name="entry.33333" value="30 days"> 30 Days</label>
-                            </div>
-                        </div>
-        
-                        <div class="form-group">
-                            <label>Attach Files (Link to Dropbox/Google Drive)</label>
-                            <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">*Note: Google Forms HTML embed doesn't support direct file upload. Please provide a download link or email files to us.</p>
-                            <input type="text" name="entry.44444" placeholder="Link to PDF / Solidworks files">
-                        </div>
-        
-                        <button type="submit" class="btn-submit">Submit Quote Request</button>
-                    </form>
-                </div>
-            </div>
-        </section>
 
-        /* 手機版適配 */
+        footer { padding: 50px 10%; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: #666; }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* 簡化版 */
+            .nav-links { display: none; }
             .hero-content h1 { font-size: 2.2rem; }
+            .form-row { flex-direction: column; }
         }
     </style>
 </head>
@@ -248,7 +124,7 @@
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#order">How to order</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#quote" class="btn-quote">Get Free Quote Now</a></li>
+            <li><a href="#contact" class="btn-quote">Get Free Quote Now</a></li>
         </ul>
     </nav>
 
@@ -271,10 +147,10 @@
             <div class="card">
                 <div class="card-body">
                     <h3>精密加工</h3>
-                    <p>支援鋁、鋼、不鏽鋼及多種工程塑料，公差精準至 0.001"。 </p>
+                    <p>支援鋁、鋼、不鏽鋼及多種工程塑料，公差精準至 0.001"。</p>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
     <section id="gallery" style="background: #0e0e10;">
@@ -288,16 +164,69 @@
 
     <section id="order">
         <h2>How to order</h2>
-        <div class="contact-wrap">
+        <div class="contact-wrap" style="text-align: center;">
             <p>1. 上傳 CAD 檔案 -> 2. 獲取報價 -> 3. 開始加工 -> 4. 快速交貨</p>
         </div>
     </section>
 
     <section id="contact" style="background: #0e0e10;">
-        <h2>Contact Us</h2>
-        <div class="contact-wrap">
-            <p>地址：XXX</p>
-            <p>Email: info@yourdomain.ca</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact</h2>
+                <div class="info-item">
+                    <strong>Email</strong>
+                    <p>info@yourdomain.ca</p>
+                </div>
+                <div class="info-item">
+                    <strong>QR Code</strong>
+                    <div class="qr-wrap">
+                        <img src="assets/qr-code.png" alt="QR Code">
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-form">
+                <h2>Start Your Quote</h2>
+                <form action="https://docs.google.com/forms/u/0/d/e/你的表單ID/formResponse" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="entry.12345" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="entry.67890" placeholder="Your Email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="entry.22222" rows="4" placeholder="Describe your project..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Acceptable lead time (Different time has different price)</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="entry.33333" value="10"> 10 Days</label>
+                            <label><input type="radio" name="entry.33333" value="20"> 20 Days</label>
+                            <label><input type="radio" name="entry.33333" value="30"> 30 Days</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Material</label>
+                        <input type="text" name="entry.11111" placeholder="e.g. Aluminum 6061">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Attach Files (Link to Cloud Storage)</label>
+                        <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">* Accept: PDF/Solidworks... Please provide a Google Drive/Dropbox link.</p>
+                        <input type="text" name="entry.44444" placeholder="Paste link here">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Quote Request</button>
+                </form>
+            </div>
         </div>
     </section>
 
