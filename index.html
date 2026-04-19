@@ -102,69 +102,135 @@
         .card img { width: 100%; height: 200px; object-fit: cover; }
         .card-body { padding: 20px; }
 
+        /* --- Contact 佈局 --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info { flex: 1; min-width: 300px; }
+        .quote-form { 
+            flex: 2; 
+            min-width: 400px; 
+            background: #161617; 
+            padding: 40px; 
+            border-radius: 12px; 
+            border: 1px solid #2d2d2e;
+        }
+        
+        .contact-info h2, .quote-form h2 { text-align: left; margin-bottom: 30px; }
+        
+        .info-item { margin-bottom: 25px; }
+        .info-item strong { display: block; color: white; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* --- 表單美化 --- */
+        .form-group { margin-bottom: 20px; }
+        .form-row { display: flex; gap: 20px; }
+        .form-row .form-group { flex: 1; }
+        
+        label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #bbb; }
+        
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0a0a0b;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        input:focus, textarea:focus { outline: none; border-color: #666; }
+        
+        .radio-group { display: flex; gap: 20px; padding-top: 5px; }
+        .radio-group label { color: white; cursor: pointer; }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .btn-submit:hover { background: #ccc; }
+        
+        @media (max-width: 850px) {
+            .contact-container { flex-direction: column; }
+            .form-row { flex-direction: column; gap: 0; }
+        }
         /* --- 4. 聯絡資訊 --- */
+        
         <section id="contact" style="background: #0e0e10; padding-top: 80px;">
-    <div class="contact-container">
-        <div class="contact-info">
-            <h2>Contact</h2>
-            <div class="info-item">
-                <strong>Email</strong>
-                <p>info@yourdomain.ca</p>
-            </div>
-            <div class="info-item">
-                <strong>Address</strong>
-                <p>636 Welland Ave, St. Catharines, ON</p>
-            </div>
-            <div class="qr-wrap">
-                <p>Scan to Chat</p>
-                <img src="assets/qr-code.png" alt="QR Code" style="width: 150px; margin-top: 10px; border: 5px solid white; border-radius: 4px;">
-            </div>
-        </div>
-
-        <div class="quote-form">
-            <h2>Start Your Quote</h2>
-            <form action="https://docs.google.com/forms/u/0/d/e/你的表單ID/formResponse" method="POST" target="_self">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="entry.12345" placeholder="Your Name" required>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Contact</h2>
+                    <div class="info-item">
+                        <strong>Email</strong>
+                        <p>info@yourdomain.ca</p>
                     </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="entry.67890" placeholder="Your Email" required>
+                    <div class="info-item">
+                        <strong>Address</strong>
+                        <p>636 Welland Ave, St. Catharines, ON</p>
+                    </div>
+                    <div class="qr-wrap">
+                        <p>Scan to Chat</p>
+                        <img src="assets/qr-code.png" alt="QR Code" style="width: 150px; margin-top: 10px; border: 5px solid white; border-radius: 4px;">
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label>Material</label>
-                    <input type="text" name="entry.11111" placeholder="e.g. Aluminum 6061, Delrin..." required>
+        
+                <div class="quote-form">
+                    <h2>Start Your Quote</h2>
+                    <form action="https://docs.google.com/forms/u/0/d/e/你的表單ID/formResponse" method="POST" target="_self">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="entry.12345" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="entry.67890" placeholder="Your Email" required>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Material</label>
+                            <input type="text" name="entry.11111" placeholder="e.g. Aluminum 6061, Delrin..." required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Description (Part Details)</label>
+                            <textarea name="entry.22222" rows="4" placeholder="Tell us about your project requirements..."></textarea>
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Acceptable Lead Time (Lower time = Higher cost)</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="entry.33333" value="10 days"> 10 Days</label>
+                                <label><input type="radio" name="entry.33333" value="20 days"> 20 Days</label>
+                                <label><input type="radio" name="entry.33333" value="30 days"> 30 Days</label>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Attach Files (Link to Dropbox/Google Drive)</label>
+                            <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">*Note: Google Forms HTML embed doesn't support direct file upload. Please provide a download link or email files to us.</p>
+                            <input type="text" name="entry.44444" placeholder="Link to PDF / Solidworks files">
+                        </div>
+        
+                        <button type="submit" class="btn-submit">Submit Quote Request</button>
+                    </form>
                 </div>
-
-                <div class="form-group">
-                    <label>Description (Part Details)</label>
-                    <textarea name="entry.22222" rows="4" placeholder="Tell us about your project requirements..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Acceptable Lead Time (Lower time = Higher cost)</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="entry.33333" value="10 days"> 10 Days</label>
-                        <label><input type="radio" name="entry.33333" value="20 days"> 20 Days</label>
-                        <label><input type="radio" name="entry.33333" value="30 days"> 30 Days</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Attach Files (Link to Dropbox/Google Drive)</label>
-                    <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">*Note: Google Forms HTML embed doesn't support direct file upload. Please provide a download link or email files to us.</p>
-                    <input type="text" name="entry.44444" placeholder="Link to PDF / Solidworks files">
-                </div>
-
-                <button type="submit" class="btn-submit">Submit Quote Request</button>
-            </form>
-        </div>
-    </div>
-</section>
+            </div>
+        </section>
 
         /* 手機版適配 */
         @media (max-width: 768px) {
