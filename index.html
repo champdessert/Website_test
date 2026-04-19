@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
+<html lang="zh-Hant"> /*中文顯示
+<head> /*背景設定檔
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司名稱 | 專業工程服務</title>
-    <style>
+    <title>公司名稱 | 專業工程服務</title> /*瀏覽器上方顯示名稱*/
+    <style> /*CSS 控制外觀（顏色、排版）*/
         /* --- 基礎設定 --- */
         :root {
             --bg-dark: #0a0a0b;
@@ -24,25 +24,25 @@
             line-height: 1.6;
         }
 
-        /* --- 導覽列 --- */
+        /* --- 導覽列設定 --- */
         nav {
-            position: fixed;
+            position: fixed; /*將導覽列固定於最上方*/
             top: 0; width: 100%;
-            padding: 20px 5%;
+            padding: 20px 5%; /*大小/留白設定*/
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(10, 10, 11, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            align-items: center; /*按鈕排列方式(左向右)*/
+            z-index: 1000; /*確保導覽列在最上層（不會被蓋住）*/
+            background: rgba(10, 10, 11, 0.8); /*半透明黑色背景*/
+            backdrop-filter: blur(10px); /*毛玻璃效果*/
+            border-bottom: 1px solid rgba(255,255,255,0.1); /*底部一條淡線*/
         }
 
         .logo { font-weight: bold; font-size: 1.2rem; cursor: pointer; text-decoration: none; color: white; }
-        .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: white; }
-        .btn-quote { background: white; color: black !important; padding: 8px 18px; border-radius: 4px; font-weight: bold; }
+        .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; } /*把按鈕排成「一排」*/
+        .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.9rem; transition: 0.3s; }/*移除底線hover 有動畫（變色會滑順）*/
+        .nav-links a:hover { color: white; } /*文字顏色 滑鼠移上去 → 變白*/
+        .btn-quote { background: white; color: black !important; padding: 8px 18px; border-radius: 4px; font-weight: bold; } /*白底黑字（比較醒目）*/
 
         /* --- Hero Banner --- */
         .hero {
@@ -115,9 +115,9 @@
         }
     </style>
 </head>
-<body>
+<body> <!使用者「看到的全部內容」，文字、圖、影片>
 
-    <nav>
+    <nav> <!導覽列的按鈕們>
         <a href="#" class="logo">XXX ENGINEERING</a>
         <ul class="nav-links">
             <li><a href="#services">Feature & Service</a></li>
@@ -191,37 +191,37 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="entry.12345" placeholder="Your Name" required>
+                            <input type="text" name="entry.1746636868" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" name="entry.67890" placeholder="Your Email" required>
+                            <input type="email" name="entry.159917008" placeholder="Your Email" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea name="entry.22222" rows="4" placeholder="Describe your project..."></textarea>
+                        <textarea name="entry.1997180388" rows="4" placeholder="Describe your project..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Acceptable lead time (Different time has different price)</label>
                         <div class="radio-group">
-                            <label><input type="radio" name="entry.33333" value="10"> 10 Days</label>
-                            <label><input type="radio" name="entry.33333" value="20"> 20 Days</label>
-                            <label><input type="radio" name="entry.33333" value="30"> 30 Days</label>
+                            <label><input type="radio" name="entry.242333692" value="10"> 10 Days</label>
+                            <label><input type="radio" name="entry.242333692" value="20"> 20 Days</label>
+                            <label><input type="radio" name="entry.242333692" value="30"> 30 Days</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Material</label>
-                        <input type="text" name="entry.11111" placeholder="e.g. Aluminum 6061">
+                        <input type="text" name="entry.2108422469" placeholder="e.g. Aluminum 6061">
                     </div>
 
                     <div class="form-group">
                         <label>Attach Files (Link to Cloud Storage)</label>
                         <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">* Accept: PDF/Solidworks... Please provide a Google Drive/Dropbox link.</p>
-                        <input type="text" name="entry.44444" placeholder="Paste link here">
+                        <input type="text" name="entry.791226516" placeholder="Paste link here">
                     </div>
 
                     <button type="submit" class="btn-submit">Submit Quote Request</button>
