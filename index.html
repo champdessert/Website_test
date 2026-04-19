@@ -187,17 +187,22 @@
 
             <div class="quote-form">
                 <h2>Start Your Quote</h2>
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdHVcsTEia4EvDb-YBq1di53Dmsr2SqP93-toA8GI_lX_RsYw/formResponse" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="entry.1746636868" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="entry.159917008" placeholder="Your Email" required>
-                        </div>
-                    </div>
+                
+                <script>var submitted=false;</script>
+                
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+                        onload="if(submitted) {alert('我們已收到您的報價申請，將盡快與您聯繫！'); window.location.reload();}">
+                </iframe>
+            
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdHVcsTEia4EvDb-YBq1di53Dmsr2SqP93-toA8GI_lX_RsYw/formResponse" 
+                      method="POST" 
+                      target="hidden_iframe" 
+                      onsubmit="submitted=true;">
+                    
+                    <div class="form-row">...</div>
+                    <button type="submit" class="btn-submit">Submit Quote Request</button>
+                </form>
+            </div>
 
                     <div class="form-group">
                         <label>Description</label>
