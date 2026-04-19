@@ -168,9 +168,9 @@
             <p>1. 上傳 CAD 檔案 -> 2. 獲取報價 -> 3. 開始加工 -> 4. 快速交貨</p>
         </div>
     </section>
-
-    <section id="contact" style="background: #0e0e10;">
+    <section id="contact" style="background: #0e0e10; padding-top: 80px;">
         <div class="contact-container">
+            
             <div class="contact-info">
                 <h2>Contact</h2>
                 <div class="info-item">
@@ -184,7 +184,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="quote-form">
                 <h2>Start Your Quote</h2>
                 
@@ -193,22 +193,28 @@
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
                         onload="if(submitted) {alert('我們已收到您的報價申請，將盡快與您聯繫！'); window.location.reload();}">
                 </iframe>
-            
+    
                 <form action="https://docs.google.com/forms/d/e/1FAIpQLSdHVcsTEia4EvDb-YBq1di53Dmsr2SqP93-toA8GI_lX_RsYw/formResponse" 
                       method="POST" 
                       target="hidden_iframe" 
                       onsubmit="submitted=true;">
                     
-                    <div class="form-row">...</div>
-                    <button type="submit" class="btn-submit">Submit Quote Request</button>
-                </form>
-            </div>
-
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="entry.1746636868" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="entry.159917008" placeholder="Your Email" required>
+                        </div>
+                    </div>
+    
                     <div class="form-group">
                         <label>Description</label>
                         <textarea name="entry.1997180388" rows="4" placeholder="Describe your project..."></textarea>
                     </div>
-
+    
                     <div class="form-group">
                         <label>Acceptable lead time (Different time has different price)</label>
                         <div class="radio-group">
@@ -217,24 +223,22 @@
                             <label><input type="radio" name="entry.242333692" value="30"> 30 Days</label>
                         </div>
                     </div>
-
+    
                     <div class="form-group">
                         <label>Material</label>
                         <input type="text" name="entry.2108422469" placeholder="e.g. Aluminum 6061">
                     </div>
-
+    
                     <div class="form-group">
                         <label>Attach Files (Link to Cloud Storage)</label>
-                        <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">* Accept: PDF/Solidworks... Please provide a Google Drive/Dropbox link.</p>
+                        <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">* Accept: PDF/Solidworks... Please provide link.</p>
                         <input type="text" name="entry.791226516" placeholder="Paste link here">
                     </div>
-
+    
                     <button type="submit" class="btn-submit">Submit Quote Request</button>
                 </form>
-            </div>
-        </div>
-    </section>
-
+            </div> </div> </section>
+   
     <footer>
         &copy; 2026 公司名稱. All rights reserved.
     </footer>
