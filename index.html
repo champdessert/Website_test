@@ -224,19 +224,7 @@
         }
     </style>
 </head>
-    <script>
-    // 獲取 checkbox 元素和所有的選單連結
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelectorAll('.nav-links a');
 
-    // 對每個連結監聽點擊事件
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // 當點擊任何連結時，將勾選狀態設為 false (收起選單)
-            menuToggle.checked = false;
-        });
-    });
-</script>
 <body> <!使用者「看到的全部內容」，文字、圖、影片>
 
     <nav> <!導覽列按鈕>
@@ -427,6 +415,18 @@
     <footer>
         &copy; 2026 protoshop. All rights reserved.
     </footer>
+    <script>
+    // 獲取 checkbox 元素和所有的選單連結
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
+    // 對每個連結監聽點擊事件
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // 當點擊任何連結時，將勾選狀態設為 false (收起選單)
+            menuToggle.checked = false;
+        });
+    });
+    </script>
 </body>
 </html>
